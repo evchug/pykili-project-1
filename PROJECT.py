@@ -77,17 +77,16 @@ for extractor in extractors:            #выделение сущностей �
 show_markup(text,spans)
 
 
-#names extraction
+#имена
 Namespans = []
 Namefacts = []
 Name_matches = Name(text)
 Namespans.extend(_.span for _ in Name_matches)
 Namefacts.extend(_.fact.as_json for _ in Name_matches)
-
 print('\n\n Names:\n')
 show_json(Namefacts)
 
-#addresses&locations extraction
+#адреса
 Addspans = []
 Addfacts = []
 Locspans = []
@@ -98,17 +97,15 @@ Addfacts.extend(_.fact.as_json for _ in Add_matches)
 Loc_matches = Loc(text)
 Locspans.extend(_.span for _ in Loc_matches)
 Locfacts.extend(_.fact.as_json for _ in Loc_matches)
-
 print('\n\n Addresses:\n')
 show_json(Addfacts)
 show_json(Locfacts)
 
-#dates extraction
+#даты
 Datspans = []
 Datfacts = []
 Dat_matches = Dat(text)
 Datspans.extend(_.span for _ in Dat_matches)
 Datfacts.extend(_.fact.as_json for _ in Dat_matches)
-
 print('\n\n Dates:\n')
 show_json(Datfacts)
